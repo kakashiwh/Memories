@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({limit: "30mb", extended: true }));
 app.use(cors());
 
 app.use('/posts',postRouters);
-
+app.disable('etag');
 app.use(express.static(path.join(__dirname, "./client/build")));
      app.get("*", function (_, res) {
        res.sendFile(
