@@ -44,10 +44,10 @@ mongoose.connect(process.env.CONNECTION_URL,{ useNewUrlParser : true , useUnifie
      .then(() => app.listen(PORT,() => console.log(`Server running on port: ${PORT}`)))
      .catch((error) => console.log(error));
  */
-     app.use(express.static(path.join(__dirname, "../client/build")));
+     app.use(express.static(path.join(__dirname, "./client/build")));
      app.get("*", function (_, res) {
        res.sendFile(
-         path.join(__dirname, "../client/build/index.html"),
+         path.join(__dirname, "./client/build/index.html"),
          function (error) {
            res.status(500).send(error.message);
          }
